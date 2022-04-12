@@ -16,7 +16,7 @@ namespace SbSender.Services
             _config = config;
             _logger = logger;
         }
-
+        
         public async Task SendMessageAsync<T>(T servicebBusMessage, string queueName)
         {
 
