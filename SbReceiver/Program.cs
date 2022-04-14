@@ -18,6 +18,9 @@ namespace SbReceiver
             var builder = new ConfigurationBuilder();
             BuildConfig(builder);
             var _config = builder.Build();
+
+            var test = _config.GetConnectionString("AzureServiceBus");
+
             queueClient = new QueueClient(_config.GetConnectionString("AzureServiceBus"), queueName);
             var messageHandlerOption = new MessageHandlerOptions(ExceptionReceivedContext)
             {
