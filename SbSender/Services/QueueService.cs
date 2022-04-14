@@ -17,13 +17,23 @@ namespace SbSender.Services
             _logger = logger;
         }
         
-        public async Task SendMessageAsync<T>(T servicebBusMessage, string queueName)
+        public async Task SendMessageAsync<T>(T serviceBusMessage, string queueName)
         {
-            var queueClient = new QueueClient(_config.GetConnectionString("AzureServiceBus"), queueName);
-            var messageBody = JsonSerializer.Serialize(servicebBusMessage);
-            var message = new Message(Encoding.UTF8.GetBytes(messageBody));
+            try
+            {
+                var cns = _config.GetConnectionString("AzureServiceBus");
+                var queueClient = new QueueClient(_config.GetConnectionString("AzureServiceBus"), queueName);
+                var messageBody = JsonSerializer.Serialize(serviceBusMessage);
+                var message = new Message(Encoding.UTF8.GetBytes(messageBody));
 
-            await queueClient.SendAsync(message);
+                await queueClient.SendAsync(message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
     }
 }

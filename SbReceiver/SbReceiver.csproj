@@ -8,11 +8,10 @@
     <UserSecretsId>702e9971-5ba7-4a3d-bf96-66f12614d351</UserSecretsId>
   </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Azure.Messaging.ServiceBus" Version="7.7.0" />
-		<PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.2.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+  </ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\SbShared\SbShared.csproj" />
